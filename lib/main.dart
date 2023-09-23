@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'google';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
@@ -20,16 +20,48 @@ class drag extends StatefulWidget {
 class _dragState extends State<drag> {
   @override
   Widget build(BuildContext context) {
+    double left = 0;
+    double top = 0;
     return Scaffold(
       backgroundColor: Colors.purple.shade50,
       body: ListView(
         children: [
           Draggable(
-            feedback: feedback,
-            child: Container(
+            feedback: Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(43, 132, 58, 223),
+                borderRadius: BorderRadius.circular(10),
+              ),
               child: Text(
-                'Drag me?',
-                style: Google,
+                'Dragging!!!!',
+                style: GoogleFonts.josefinSans(),
+              ),
+            ),
+//the ondrag logic(this one helps to mark/ note the location you started off from )
+            onDragStarted: () {
+              setState(() {
+                left = left;
+                top = top;
+              });
+            },
+            onDragUpdate: (details) {
+              setState(() {
+                left += details.delta.dx;
+                top += details.delta.dy;
+              });
+            },
+            child: Positioned(
+              left: left,
+              top: top,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.purple.shade900,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  'Drag me?',
+                  style: GoogleFonts.baloo2(),
+                ),
               ),
             ),
           ),
