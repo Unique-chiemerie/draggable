@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
@@ -33,9 +32,8 @@ class _dragState extends State<drag> {
                 color: const Color.fromARGB(43, 132, 58, 223),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Text(
+              child: const Text(
                 'Dragging!!!!',
-                style: GoogleFonts.josefinSans(),
               ),
             ),
 //the ondrag logic(this one helps to mark/ note the location you started off from )
@@ -52,16 +50,15 @@ class _dragState extends State<drag> {
               });
             },
             child: Positioned(
-              left: left,
               top: top,
+              left: left,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.purple.shade900,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Text(
+                child: const Text(
                   'Drag me?',
-                  style: GoogleFonts.baloo2(),
                 ),
               ),
             ),
