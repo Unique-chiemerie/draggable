@@ -10,6 +10,7 @@ void main() {
   );
 }
 
+// ignore: camel_case_types
 class drag extends StatefulWidget {
   const drag({super.key});
 
