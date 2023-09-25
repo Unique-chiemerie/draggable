@@ -13,7 +13,6 @@ void main() {
 // ignore: camel_case_types
 class drag extends StatefulWidget {
   const drag({super.key});
-
   @override
   State<drag> createState() => _dragState();
 }
@@ -28,6 +27,9 @@ class _dragState extends State<drag> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(
+              height: 70,
+            ),
             Text(
               'Drag test',
               style: GoogleFonts.baloo2(fontSize: 30, color: Colors.white),
@@ -40,34 +42,24 @@ class _dragState extends State<drag> {
                 height: 100,
                 width: 100,
                 decoration: BoxDecoration(
-                  color: Colors.green.withOpacity(20),
+                  color: Colors.green,
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
               //ondrag start
-              onDragStarted: () {
-                setState(() {
-                  left = left;
-                  top = top;
-                });
-              },
 
               onDragUpdate: (details) {
                 setState(() {
-                  top += details.delta.dx;
-                  left += details.delta.dy;
+                  top += details.delta.dy;
+                  left += details.delta.dx;
                 });
               },
-              child: Positioned(
-                left: left,
-                top: top,
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+              child: Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
